@@ -1,6 +1,7 @@
 var lettersGuessed = [];
 var guessesLeft = 9;
 var wins = 0;
+var loss = 0;
 
 //use Math.random method along with String.fromCharCode method to generate a random letter
 var computerGuess = String.fromCharCode(Math.round(Math.random() * 26) + 97);
@@ -54,6 +55,7 @@ function guessMatch(character) {
   } else if (guessesLeft === 0) {
     alert("Aw man! Lets start over.");
     resetVariables();
+    showLoss();
   } else {
     guessesLeft = guessesLeft - 1;
     showGuessesRemaining();
@@ -64,7 +66,10 @@ function guessMatch(character) {
 function showWins() {
   document.getElementById("numWins").innerHTML = wins;
 }
-
+//function to show losses
+function showLoss() {
+  document.getElementById("numLoss").innerHTML = loss;
+}
 //function to show guesses remaining
 function showGuessesRemaining() {
   document.getElementById("numGuesses").innerHTML = guessesLeft;
