@@ -51,11 +51,13 @@ function guessMatch(character) {
     alert("You win!");
     wins = wins + 1;
     showWins();
+    resetVariables(lettersGuessed);
     //toggleGame();
   } else if (guessesLeft === 0) {
     alert("Aw man! Lets start over.");
-    resetVariables();
+    loss = loss + 1;
     showLoss();
+    resetVariables(lettersGuessed);
   } else {
     guessesLeft = guessesLeft - 1;
     showGuessesRemaining();
@@ -79,10 +81,11 @@ function resetVariables() {
   lettersGuessed = [];
   guessesLeft = 10;
 }
-
+//Function to display the default value for each item at the beginning of the game
 function startGame() {
   showGuessesRemaining();
   showWins();
+  showLoss();
 }
 
 startGame();
