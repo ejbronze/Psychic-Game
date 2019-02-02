@@ -1,12 +1,20 @@
-var lettersGuessed = [];
-var guessesLeft = 9;
-var wins = 0;
-var loss = 0;
+// var lettersGuessed = [];
+// var guessesLeft = 9;
+// var wins = 0;
+// var loss = 0;
+
+const state = {
+  lettersGuessed: [],
+  guessesLeft: 9,
+  wins: 0,
+  loss: 0,
+  computerGuess: String.fromCharCode(Math.round(Math.random() * 26) + 97)
+};
 
 //use Math.random method along with String.fromCharCode method to generate a random letter
-var computerGuess = String.fromCharCode(Math.round(Math.random() * 26) + 97);
+// var computerGuess = String.fromCharCode(Math.round(Math.random() * 26) + 97);
 
-console.log(computerGuess);
+console.log(state.computerGuess);
 //function to capture user's keyboard input and make the input lowercase
 document.onkeydown = function(event) {
   var keyPress = String.fromCharCode(event.keyCode).toLowerCase();
@@ -17,7 +25,7 @@ document.onkeydown = function(event) {
 
 //function to catch repeat letters and/or add players guess to lettersGuessed string
 function addLetter(usersKeypress) {
-  var repeatGuess = lettersGuessed.some(function(item) {
+  var repeatGuess = state.lettersGuessed.some(function(item) {
     return item === usersKeypress;
   });
 
@@ -27,8 +35,8 @@ function addLetter(usersKeypress) {
 
     //if it is not a repeat guess, check if it's in word
   } else {
-    lettersGuessed.push(usersKeypress);
-    console.log(lettersGuessed);
+    state.lettersGuessed.push(usersKeypress);
+    console.log(state.lettersGuessed);
 
     //show user's input in browser
     showLettersGuessed();
@@ -39,47 +47,50 @@ function addLetter(usersKeypress) {
 
 //function to show letters guessed in browser
 function showLettersGuessed() {
-  var tempStr = lettersGuessed.join(", ");
+  var tempStr = state.lettersGuessed.join(", ");
   document.getElementById("playersGuess").innerHTML = tempStr;
 }
 
 function guessMatch(character) {
   console.log(character);
-  console.log(computerGuess);
+  console.log(state.computerGuess);
 
-  if (character === computerGuess) {
+  if (character === state.computerGuess) {
     alert("You win!");
-    wins = wins + 1;
+    state.wins = state.wins + 1;
     showWins();
-    resetVariables(lettersGuessed);
+    resetVariables(state);
     //toggleGame();
-  } else if (guessesLeft === 0) {
+  } else if (state.guessesLeft === 0) {
     alert("Aw man! Lets start over.");
-    loss = loss + 1;
+    state.loss = state.loss + 1;
     showLoss();
-    resetVariables(lettersGuessed);
+    resetVariables(state);
   } else {
-    guessesLeft = guessesLeft - 1;
+    state.guessesLeft = state.guessesLeft - 1;
     showGuessesRemaining();
   }
 }
 
 //function to show wins
 function showWins() {
-  document.getElementById("numWins").innerHTML = wins;
+  document.getElementById("numWins").innerHTML = state.wins;
 }
 //function to show losses
 function showLoss() {
-  document.getElementById("numLoss").innerHTML = loss;
+  document.getElementById("numLoss").innerHTML = state.loss;
 }
 //function to show guesses remaining
 function showGuessesRemaining() {
-  document.getElementById("numGuesses").innerHTML = guessesLeft;
+  document.getElementById("numGuesses").innerHTML = state.guessesLeft;
 }
 
-function resetVariables() {
-  lettersGuessed = [];
-  guessesLeft = 10;
+function resetVariables(state) {
+  state.lettersGuessed = [];
+  state.guessesLeft = 10;
+  state.computerGuess = String.fromCharCode(
+    Math.round(Math.random() * 26) + 97
+  );
 }
 //Function to display the default value for each item at the beginning of the game
 function startGame() {
