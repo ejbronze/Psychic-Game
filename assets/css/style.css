@@ -1,0 +1,29 @@
+@import url("https://fonts.googleapis.com/css?family=Homemade+Apple|Reenie+Beanie");
+
+.row-centered {
+  text-align: center;
+}
+.col-centered {
+  display: inline-block;
+  float: none;
+  /* reset the text-align */
+  text-align: left;
+  /* inline-block space fix */
+  margin-right: -4px;
+  text-align: center;
+  background-color: #ccc;
+  border: 1px solid #ddd;
+}
+
+#appName {
+  font-family: "Homemade Apple", cursive;
+  color: red;
+  text-shadow: 2px 2px 8px white;
+}
+h2 {
+  font-family: "Reenie Beanie", cursive;
+  text-shadow: 2px 2px 8px white;
+}
+span {
+  color: red;
+}

@@ -4,22 +4,52 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+      integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+      integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
     <title>Document</title>
   </head>
   <body>
     <!--Psychic Game-->
+    <div class="Container">
+      <div class="row row-centered">
+        <div class="jumbotron col-lg-12 col-centered">
+          <h1 id="appName">The Psychic Game</h1>
 
-    <h1>The psychic game</h1>
-
-    <h2>Guess the letter that the computer is thinking.</h2>
-
-    <p>Wins: <span id="numWins"></span></p>
-
-    <p>Loses:<span id="numLoss"></span></p>
-
-    <p>Guesses left: <span id="numGuesses"></span></p>
-
-    <p>Your guesses so far: <span id="playersGuess"></span></p>
+          <h2 class="mt-4">Guess the letter that the computer is thinking.</h2>
+        </div>
+      </div>
+      <div class="row row-centered">
+        <div class="col">
+          <h2>Wins:</h2>
+          <span id="numWins"></span>
+        </div>
+        <div class="col">
+          <h2>Loses:</h2>
+          <span id="numLoss"></span>
+        </div>
+        <div class="col">
+          <h2>Guesses left:</h2>
+          <span id="numGuesses"></span>
+        </div>
+      </div>
+      <div class="row row-centered">
+        <div class="col">
+          <h2>Your guesses so far:</h2>
+          <br />
+          <span id="playersGuess"></span>
+        </div>
+      </div>
+    </div>
 
     <script src="assets/javascript/game.js"></script>
   </body>
